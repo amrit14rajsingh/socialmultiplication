@@ -1,0 +1,23 @@
+#http://localhost:8091/index.html
+server:
+  port: 8091
+#http://localhost:8091/h2-console
+spring:
+  h2:
+    console:
+      enabled: true # Gives us access to the H2 database web console
+  jpa:
+    properties:
+      hibernate:
+       show_sql: true # For educational purposes we will show the SQL in console
+    hibernate:
+      ddl-auto: update # Generates the database *only* if it's not there yet
+  datasource:
+         #url: jdbc:h2:file:C:/Amrit/EclipseSTSWorkspace/socialmultiplicationDB;DB_CLOSE_ON_EXIT=FALSE; # Creates the database in a file
+        url: jdbc:h2:file:~/socialmultiplicationDB;DB_CLOSE_ON_EXIT=FALSE; # Creates the database in a file
+## RabbitMQ configuration http://localhost:15672
+multiplication:
+   exchange: multiplication_exchange
+   solved:
+     key: multiplication.solved
+     
